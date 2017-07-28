@@ -8,7 +8,7 @@ http.createServer(function (req, res) {
     var mydata  = "hello world start, ";
 
 
-    var url = "mongodb://localhost:27017/mydb";
+    var url = "mongodb://localhost/mydb";
 // Load mongoose package
 var mongoose = require('mongoose');
 // Connect to MongoDB and create/use database called todoAppTest

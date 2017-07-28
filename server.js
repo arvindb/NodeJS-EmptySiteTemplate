@@ -29,7 +29,7 @@ var todo = new Todo({name: 'Master NodeJS', completed: false, note: 'Getting the
 // Save it to database
 todo.save(function(err){
   if(err)
-    console.log(err);
+    mydata = mydata + err;
   else
     mydata = mydata + "saved";
 });

@@ -7,18 +7,33 @@ http.createServer(function (req, res) {
     
     var mydata  = "hello world start, ";
 
-    var MongoClient = require('mongodb').MongoClient;
+
     var url = "mongodb://localhost:27017/mydb";
-
-
-    MongoClient.connect(url, function(err, db) {
-    if (err) throw err;
-    mydata = mydata + "Database created!";
-    db.close();
-    });
-
+// Load mongoose package
+var mongoose = require('mongoose');
+// Connect to MongoDB and create/use database called todoAppTest
+mongoose.connect(url);
+// Create a schema
+var TodoSchema = new mongoose.Schema({
+  name: String,
+  completed: Boolean,
+  note: String,
+  updated_at: { type: Date, default: Date.now },
+});
+// Create a model based on the schema
+var Todo = mongoose.model('Todo', TodoSchema);
     
 
+// Create a todo in memory
+var todo = new Todo({name: 'Master NodeJS', completed: false, note: 'Getting there...'});
+// Save it to database
+todo.save(function(err){
+  if(err)
+    console.log(err);
+  else
+    mydata = mydata + "saved";
+});
+   
     mydata = mydata  + "hello world end";
 
     res.end(mydata);

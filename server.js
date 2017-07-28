@@ -13,6 +13,12 @@ http.createServer(function (req, res) {
 var mongoose = require('mongoose');
 // Connect to MongoDB and create/use database called todoAppTest
 mongoose.connect(url);
+
+
+mydata = mydata + mongoose.err;
+
+
+
 // Create a schema
 var TodoSchema = new mongoose.Schema({
   name: String,

@@ -7,7 +7,7 @@ http.createServer(function (req, res) {
     
     var mydata  = "hello world start, ";
 
-    var MongoClient = require('mongodb').MongoClient;
+    var MongoClient = require('mongodbx').MongoClient;
     var url = "mongodb://localhost:27017/mydb";
 
     MongoClient.connect(url, function(err, db) {

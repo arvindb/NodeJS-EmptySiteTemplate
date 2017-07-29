@@ -1,5 +1,5 @@
 var http = require('http');
-
+console.log("ok running");
 
 http.createServer(function (req, res) {
     
@@ -8,17 +8,15 @@ http.createServer(function (req, res) {
     var mydata  = "hello world start, ";
 
 
-    var url = "mongodb://localhost/mydb";
-// Load mongoose package
-var mongoose = require('mongoose');
-// Connect to MongoDB and create/use database called todoAppTest
-mongoose.connect(url);
+//var url = "mongodb://localhost/mydb";
+//Load mongoose package
+//var mongoose = require('mongoose');
+//Connect to MongoDB and create/use database called todoAppTest
+//mongoose.connect(url);
+//mydata = mydata + mongoose.err;
 
 
-mydata = mydata + mongoose.err;
-
-
-
+/*
 // Create a schema
 var TodoSchema = new mongoose.Schema({
   name: String,
@@ -39,15 +37,12 @@ todo.save(function(err){
   else
     mydata = mydata + "saved";
 });
+
+*/
    
     mydata = mydata  + "hello world end";
+    console.log(mydata);
 
     res.end(mydata);
     
 }).listen(process.env.PORT || 8080);
-
-
-
-
-
-

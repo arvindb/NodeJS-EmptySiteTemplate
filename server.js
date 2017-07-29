@@ -1,5 +1,6 @@
 var http = require('http');
 console.log("ok running");
+console.log("port = " + process.env.PORT);
 
 http.createServer(function (req, res) {
     
@@ -7,6 +8,13 @@ http.createServer(function (req, res) {
     
     var mydata  = "hello world start, ";
 
+   
+    mydata = mydata  + "hello world end";
+    console.log(mydata);
+
+    res.end(mydata);
+    
+}).listen(8080, '10.5.1.4');
 
 //var url = "mongodb://localhost/mydb";
 //Load mongoose package
@@ -39,10 +47,3 @@ todo.save(function(err){
 });
 
 */
-   
-    mydata = mydata  + "hello world end";
-    console.log(mydata);
-
-    res.end(mydata);
-    
-}).listen(process.env.PORT || 8080);
